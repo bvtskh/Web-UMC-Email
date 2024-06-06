@@ -1,0 +1,61 @@
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\UMC Email.dll.config
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\UMC Email.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\UMC Email.pdb
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\csc.exe
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\csc.exe.config
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\csc.rsp
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\csi.exe
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\csi.rsp
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\System.AppContext.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\vbc.exe
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\vbc.exe.config
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\vbc.rsp
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\VBCSCompiler.exe
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\Antlr3.Runtime.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\EntityFramework.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\EntityFramework.SqlServer.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\MiniExcel.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\Newtonsoft.Json.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\System.Web.Helpers.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\System.Web.Mvc.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\System.Web.Optimization.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\System.Web.Razor.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\System.Web.WebPages.Deployment.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\System.Web.WebPages.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\System.Web.WebPages.Razor.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\WebGrease.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\EntityFramework.xml
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\EntityFramework.SqlServer.xml
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\System.Web.Helpers.xml
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\System.Web.Mvc.xml
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\System.Web.Optimization.xml
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\System.Web.Razor.xml
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\System.Web.WebPages.xml
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\System.Web.WebPages.Deployment.xml
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\System.Web.WebPages.Razor.xml
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\Newtonsoft.Json.xml
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\Antlr3.Runtime.pdb
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\obj\Release\UMC Email.csproj.AssemblyReference.cache
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\obj\Release\UMC Email.csproj.CoreCompileInputs.cache
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\obj\Release\UMC Email.csproj.Up2Date
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\obj\Release\UMC Email.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\obj\Release\UMC Email.pdb

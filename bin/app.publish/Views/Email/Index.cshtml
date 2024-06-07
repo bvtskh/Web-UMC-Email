@@ -27,14 +27,39 @@
     #deleteAll {
         margin-left: 5px;
     }
+
+    #openModalBtn {
+        margin-left: 5px;
+    }
+    /* Định dạng cho nút "X" trong modal */
+    .modal .close {
+        color: blue; /* Màu chữ */
+        border: none; /* Loại bỏ đường viền */
+        font-size: 30px; /* Kích thước chữ */
+        width: 30px; /* Chiều rộng */
+        height: 30px; /* Chiều cao */
+        line-height: 0px; /* Độ cao dòng */
+        text-align: center; /* Căn chỉnh văn bản */
+        cursor: pointer; /* Con trỏ chuột */
+        position: absolute; /* Tuyệt đối */
+        right: 10px; /* Khoảng cách từ phải sang */
+    }
+
+        .modal .close:hover {
+            background-color: #ffd800; /* Màu nền khi di chuột qua */
+        }
 </style>
 <h2>Tìm kiếm</h2>
 
 <div class="form-control" style="display: flex; align-items: center;">
     <input class="form-control" type="text" id="searchBox" placeholder="Search..." />
-    <button title="Gửi mail" class="btn btn-outline-info" id="numberSelectMail" onclick="openOutlook()"></button>
     <span id="numberCount">0 Email</span>
+    <button title="Gửi mail" class="btn btn-outline-info" id="numberSelectMail" onclick="openOutlook()"></button>
     <button class="btn btn-success" id="copyMail">Copy</button>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" id="openModalBtn">
+        Chi tiết
+    </button>
     <button class="btn btn-danger" id="deleteAll">Xóa tất cả</button>
 </div>
 <script>
@@ -61,162 +86,26 @@
         </ul>
     </nav>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="overflow-y: auto; " aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">Danh sách Email</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Dữ liệu từ controller sẽ được thêm vào đây -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="sendmail" data-dismiss="modal" onclick="openOutlook()">Send Mail</button>
+                <button type="button" class="btn btn-secondary" id="closeModalBtn" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script>
-    $(document).ready(function () {
-    var currentPage = 1;
-    var pageSize = 10;
-
-    $('#searchBox').on('input', function () {
-        var query = $(this).val();
-        currentPage = 1; // Reset page to 1 when performing new search
-        loadData(query, currentPage, pageSize);
-    });
-
-    function loadData(searchTerm, page, pageSize) {
-        $.ajax({
-            url: '@Url.Action("Search", "Email")',
-            type: 'GET',
-            data: { searchTerm: searchTerm, page: page, pageSize: pageSize },
-            success: function (response) {
-                $('#dataTable tbody').empty();
-                var index = 0;
-                $.each(response.allData, function (index, item) {
-                    index++;
-                    $('#dataTable tbody').append('<tr class="data-row"><td>' + index + '</td><td>' + item.DEPARTMENT + '</td><td>' + item.NAME + '</td><td class="data-email">' + '<strong>'+ item.EMAIL+ '</strong>' +
-                        '<input class="form-check-input" type="checkbox" style = "margin :0 15px ;   transform: scale(1.8);  margin-top: 5px;" value="" id="flexCheckDefault">'
-                        + '</td></tr>');
-                });
-                /*Duyệt qua từng phần tử của danh sách dữ liệu để kiểm tra checkbox trong bảng*/
-                response.data.forEach(function (item) {
-                    $('.data-row').each(function () {
-                        var rowText = $(this).find('.data-email').text().trim();
-
-                        var itemEmail = rowText.split(' ')[0];
-                        if (itemEmail === item.EMAIL) {
-                            $(this).find('.form-check-input').prop('checked', true);
-                        }
-                    });
-                    ActionLoading(response);
-                });
-
-                // Update pagination
-                $('#pagination ul').empty();
-                var totalPages = response.totalPages;
-                var maxPagesToShow = 10; // Số lượng trang tối đa được hiển thị
-                var startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
-                var endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
-
-                var previous = currentPage - 1;
-                if (previous == 1) previous = 1;
-
-                var next = currentPage + 1;
-                if (next == 1) next = 1;
-
-                $('#pagination ul').append('<li class="page-item active"><button class="page-link page"  data-page="' + previous +'">Previous</button></li>');
-                for (var i = startPage; i <= endPage; i++) {
-                    $('#pagination ul').append('<li class="page-item"><button class="page-link page" data-page="' + i + '">' + i + '</button></li>');
-                }
-                $('#pagination ul').append('<li class="page-item active"><button class="page-link page" data-page="' + next +'">Next</button></li>')
-            }
-        });
-        console.log(currentPage);
-    }
-
-    // Load initial data
-    loadData('', currentPage, pageSize);
-
-    // Pagination click event
-    $(document).on('click', '.page', function () {
-        var page = $(this).data('page');
-        currentPage = page;
-        var query = $('#searchBox').val();
-        loadData(query, currentPage, pageSize);
-    });
-    // Checkbox change event
-    $('#dataTable').on('change', '.form-check-input', function () {
-
-        var isChecked = $(this).is(':checked');
-        var row = $(this).closest('tr');
-        var rowData = {
-            DEPARTMENT: row.find('td:eq(1)').text(), // Lấy dữ liệu từ cột đầu tiên (index 0)
-            NAME: row.find('td:eq(2)').text(), // Lấy dữ liệu từ cột thứ hai (index 1)
-            EMAIL: row.find('td:eq(3)').text() // Lấy dữ liệu từ cột thứ ba (index 2)
-        };
-        $.ajax({
-            url: '@Url.Action("ProcessCheckbox", "Email")',
-            type: 'POST',
-            data: { isChecked: isChecked, dataRow: rowData },
-            success: function (response) {
-                ActionLoading(response);
-            },
-            error: function (xhr, status, error) {
-                console.log("error!");
-            }
-        });
-    });
-    function ActionLoading(response) {
-
-        var count = response.count;
-        var data = response.data;
-        var text = '';
-        var getEmail = data.map(item => item.EMAIL).join('; ');
-        $('#copyMail').click(function () {
-            copyToClipboard(getEmail);
-        });
-
-
-        if (data.length > 3) {
-            var temp = count - 3;
-            $('#numberCount').html(data[0].NAME + ', ' + data[1].NAME + ', ' + data[2].NAME + ' và ' + "<a href='#' id='otherNamesLink'>" + temp + " người khác</a>"); // Cập nhật số lượng
-        }
-        else {
-            data.forEach(function (item) {
-                text += item.NAME + ', ';
-            });
-            text = text.slice(0, -2);
-            $('#numberCount').text(text);
-        }
-        if (data.length <= 0) {
-            $('#numberCount').text('0 Email');
-        }
-
-        // Sự kiện click cho link label 'những người khác'
-        var otherNames = "";
-        for (var i = 3; i < count; i++) {
-            otherNames += ", " + data[i].NAME;
-        }
-
-        $('#otherNamesLink').click(function () {
-            alert("Những người khác: " + otherNames.substring(2)); // Hiển thị hộp thoại với tên những người khác
-        });
-
-        $('#deleteAll').click(function () {
-            $.ajax({
-                type: 'POST',
-                url: '/Email/clearSession', // URL đến controller để xóa session
-                success: function (response) {
-
-                    var currentSearch = $("#searchBox").val();
-                    loadData(currentSearch, 1, 10);
-                    $('#numberCount').text('0 Email');
-                },
-                error: function (error) {
-                    console.error('Error:', error);
-                }
-            });
-        });
-    }
-    function copyToClipboard(text) {
-        console.log(text);
-        var tempInput = document.createElement("input");
-        tempInput.style.position = "absolute";
-        tempInput.style.left = "-9999px";
-        tempInput.value = text;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        document.execCommand("copy");
-        document.body.removeChild(tempInput);
-    }
-});
-</script>
+<script src="~/Scripts/JSFunction/EmailScripts.js"></script>

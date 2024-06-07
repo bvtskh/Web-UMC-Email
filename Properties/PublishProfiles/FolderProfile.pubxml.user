@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\app.publish\</_PublishTargetUrl>
-    <History>True|2024-06-06T08:28:37.0905918Z;</History>
+    <History>True|2024-06-06T12:11:22.4682996Z;True|2024-06-06T15:28:37.0905918+07:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -133,10 +133,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/27/2022 23:42:50</publishTime>
     </File>
     <File Include="bin/UMC Email.dll">
-      <publishTime>06/06/2024 15:28:35</publishTime>
+      <publishTime>06/06/2024 19:11:21</publishTime>
     </File>
     <File Include="bin/UMC Email.pdb">
-      <publishTime>06/06/2024 15:28:35</publishTime>
+      <publishTime>06/06/2024 19:11:21</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
@@ -322,13 +322,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/05/2024 13:28:55</publishTime>
     </File>
     <File Include="Scripts/JSFunction/EmailScripts.js">
-      <publishTime>06/06/2024 12:56:33</publishTime>
+      <publishTime>06/06/2024 19:10:50</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.8.3.js">
       <publishTime>06/05/2024 13:28:54</publishTime>
     </File>
     <File Include="Views/Email/Index.cshtml">
-      <publishTime>06/06/2024 15:17:47</publishTime>
+      <publishTime>06/06/2024 19:06:07</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>06/05/2024 13:28:45</publishTime>
@@ -343,7 +343,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/05/2024 13:28:45</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>06/06/2024 13:02:09</publishTime>
+      <publishTime>06/06/2024 17:03:22</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>06/05/2024 13:28:45</publishTime>

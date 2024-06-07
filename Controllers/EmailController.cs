@@ -94,7 +94,7 @@ namespace UMC_Email.Controllers
         {
             selectedItems = Session["SelectedItems"] as List<UMC_EMAIL> ?? new List<UMC_EMAIL>();
             selectedItems.Clear();
-            Session["YourDataSessionKey"] = selectedItems;
+            Session["SelectedItems"] = selectedItems;
             return Json(new { success = true });
         }
         public ActionResult OpenOutlook()
@@ -104,6 +104,31 @@ namespace UMC_Email.Controllers
             var email = string.Join("; ", emailList);
             string sendto = "mailto:" + email;
             return Redirect(sendto);
+        }
+        // Action để lấy dữ liệu
+        public JsonResult GetData()
+        {
+            var data = Session["SelectedItems"] as List<UMC_EMAIL> ?? new List<UMC_EMAIL>();
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult DeleteItem(string email)
+        {
+            try
+            {
+                selectedItems = Session["SelectedItems"] as List<UMC_EMAIL> ?? new List<UMC_EMAIL>();
+                var data = selectedItems.Where(w => w.EMAIL == email).FirstOrDefault();
+                if (data != null) { selectedItems.Remove(data); }
+
+                Session["SelectedItems"] = selectedItems;
+                return Json(new { success = true, message = "Xóa phần tử thành công." });
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi nếu có
+                return Json(new { success = false, message = "Đã xảy ra lỗi khi xóa phần tử: " + ex.Message });
+            }
         }
     }
 }

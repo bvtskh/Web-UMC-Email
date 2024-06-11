@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<UMC_Email.Models.UMC_EMAIL>
 
 @{
-    ViewBag.Title = "DANH SÁCH EMAIL";
+    ViewBag.Title = "UMC EMAIL LIST";
 }
 <style>
     #numberSelectMail {
@@ -48,19 +48,25 @@
         .modal .close:hover {
             background-color: #ffd800; /* Màu nền khi di chuột qua */
         }
+    .modal-dialog {
+        width: auto;
+        max-width: 50%;
+        height: auto;
+        margin: 1.75rem auto;
+    }
 </style>
-<h2>Tìm kiếm</h2>
+<h2>Search</h2>
 
 <div class="form-control" style="display: flex; align-items: center;">
     <input class="form-control" type="text" id="searchBox" placeholder="Search..." />
     <span id="numberCount">0 Email</span>
-    <button title="Gửi mail" class="btn btn-outline-info" id="numberSelectMail" onclick="openOutlook()"></button>
+    <button title="Send email" class="btn btn-outline-info" id="numberSelectMail" onclick="openOutlook()"></button>
     <button class="btn btn-success" id="copyMail">Copy</button>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" id="openModalBtn">
-        Chi tiết
+        Details
     </button>
-    <button class="btn btn-danger" id="deleteAll">Xóa tất cả</button>
+    <button class="btn btn-danger" id="deleteAll">Remove all</button>
 </div>
 <script>
     function openOutlook() {
@@ -70,9 +76,9 @@
 <table class="table table-bordered" id="dataTable">
     <thead>
         <tr style="background-color:black; color:white">
-            <th>STT</th>
-            <th>Bộ phận</th>
-            <th>Tên hiển thị</th>
+            <th>No</th>
+            <th>Dept</th>
+            <th>Full name</th>
             <th>Email</th>
         </tr>
     </thead>
@@ -92,7 +98,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="myModalLabel">Danh sách Email</h5>
+                <h5 class="modal-title" id="myModalLabel">UMC email list</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -107,5 +113,4 @@
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="~/Scripts/JSFunction/EmailScripts.js"></script>

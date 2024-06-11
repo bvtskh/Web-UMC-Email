@@ -18,11 +18,31 @@ namespace UMC_Email.Controllers
         List<UMC_EMAIL> selectedItems;
         // GET: Email
         DBContext context = new DBContext();
+
+        [Obsolete]
         public ActionResult Index()
         {
+            //DockEMAIL();
             var mailList = context.UMC_EMAIL.ToList();
             return View(mailList);                    
         }
+
+        [Obsolete]
+        //private void DockEMAIL()
+        //{
+        //    var rows = MiniExcel.QueryAsDataTable(@"C:\Users\u42107\Documents\Email_chuan.xlsx");
+        //    foreach (DataRow row in rows.Rows)
+        //    {
+        //        UMC_EMAIL uMC_EMAIL = new UMC_EMAIL();
+        //        uMC_EMAIL.NAME = row[1].ToString();
+        //        uMC_EMAIL.CODE = row[0].ToString();
+        //        uMC_EMAIL.DEPARTMENT = row[2].ToString();
+        //        uMC_EMAIL.EMAIL = row[3].ToString();
+        //        context.UMC_EMAIL.Add(uMC_EMAIL);
+        //        context.SaveChanges();
+        //    }
+        //}
+
         public JsonResult Search(string searchTerm = "", int page = 1, int pageSize = 10)
         {
 

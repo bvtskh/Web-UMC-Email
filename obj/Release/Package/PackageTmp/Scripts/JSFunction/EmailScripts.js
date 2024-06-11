@@ -158,7 +158,7 @@
 
         // Thêm dữ liệu từ controller vào modal body
         data.forEach(function (item) {
-            var rowHtml = '<div class="row mb-3"><div class="col">' + item.EMAIL + ' (' + item.NAME + ')' + '</div><div class="col-auto"><button type="button" class="btn btn-danger delete-btn" data-id="' + item.EMAIL + '">Xóa</button></div></div>'; // Tạo HTML cho mỗi hàng, bao gồm tên và nút Xóa
+            var rowHtml = '<div class="row mb-3"><div class="col">' + item.EMAIL + ' (' + item.NAME + ')' + '   (' + item.DEPARTMENT +')'+ '</div><div class="col-auto"><button type="button" class="btn btn-danger delete-btn" data-id="' + item.EMAIL + '">Remove</button></div></div>'; // Tạo HTML cho mỗi hàng, bao gồm tên và nút Xóa
             modalBody.append(rowHtml); // Thêm hàng vào modal body
         });
 
@@ -203,7 +203,6 @@
 
     // Function để xóa phần tử
     function deleteItem(email) {
-        // Gọi AJAX hoặc thực hiện hành động xóa tại đây
         $.ajax({
             type: 'POST',
             url: '/Email/DeleteItem',

@@ -18,5 +18,7 @@ namespace UMC_Email.Models
 
         [StringLength(200)]
         public string EMAIL { get; set; }
+
+        public string CODE {  get; set; }
     }
 }

@@ -15,7 +15,6 @@
             data: { searchTerm: searchTerm, page: page, pageSize: pageSize },
             success: function (response) {
                 $('#dataTable tbody').empty();
-                var index = 0;
                 $.each(response.allData, function (index, item) {
                     index++;
                     $('#dataTable tbody').append('<tr class="data-row"><td>' + index + '</td><td>' + item.DEPARTMENT + '</td><td>' + item.NAME + '</td><td class="data-email">' + '<strong>' + item.EMAIL + '</strong>' +

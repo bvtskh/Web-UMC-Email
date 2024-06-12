@@ -1,3 +1,4 @@
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\App_Data\Uploads\Umc_email.xlsx
 C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\UMC Email.dll.config
 C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\UMC Email.dll
 C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\UMC Email.pdb
@@ -28,8 +29,12 @@ C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\vbc.rsp
 C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\VBCSCompiler.exe
 C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\Antlr3.Runtime.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\EntityFramework.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\EntityFramework.SqlServer.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\HtmlAgilityPack.dll
 C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\MiniExcel.dll
 C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\Newtonsoft.Json.dll
 C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\System.Web.Helpers.dll
 C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\System.Web.Mvc.dll
@@ -39,6 +44,10 @@ C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\System.Web.WebPages.
 C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\System.Web.WebPages.dll
 C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\System.Web.WebPages.Razor.dll
 C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\WebGrease.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\EntityFramework.xml
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\EntityFramework.SqlServer.xml
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\HtmlAgilityPack.pdb
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\HtmlAgilityPack.xml
 C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\System.Web.Helpers.xml
 C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\System.Web.Mvc.xml
 C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\System.Web.Optimization.xml
@@ -54,8 +63,9 @@ C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\obj\Debug\UMC Email.cspr
 C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\obj\Debug\UMC Email.csproj.Up2Date
 C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\obj\Debug\UMC Email.dll
 C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\obj\Debug\UMC Email.pdb
-C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\EntityFramework.dll
-C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\EntityFramework.SqlServer.dll
-C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\MiniExcel.dll
-C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\EntityFramework.xml
-C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\EntityFramework.SqlServer.xml
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\ExcelDataReader.DataSet.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\ExcelDataReader.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\ExcelDataReader.pdb
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\ExcelDataReader.xml
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\ExcelDataReader.DataSet.pdb
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\ExcelDataReader.DataSet.xml

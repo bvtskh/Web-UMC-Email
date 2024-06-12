@@ -12,7 +12,12 @@ namespace UMC_Email
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            // Route mới cho Admin
+            routes.MapRoute(
+                name: "AdminDefault",
+                url: "Admin",
+                defaults: new { controller = "Admin", action = "Index" }
+            );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

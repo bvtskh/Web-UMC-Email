@@ -59,3 +59,13 @@ C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\obj\Release\UMC Email.cs
 C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\obj\Release\UMC Email.csproj.Up2Date
 C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\obj\Release\UMC Email.dll
 C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\obj\Release\UMC Email.pdb
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\App_Data\Uploads\Umc_email.xlsx
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\HtmlAgilityPack.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\HtmlAgilityPack.pdb
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\HtmlAgilityPack.xml
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\ExcelDataReader.DataSet.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\ExcelDataReader.dll
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\ExcelDataReader.pdb
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\ExcelDataReader.xml
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\ExcelDataReader.DataSet.pdb
+C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\ExcelDataReader.DataSet.xml

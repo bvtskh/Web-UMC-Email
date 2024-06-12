@@ -1,0 +1,270 @@
+﻿@{
+    ViewBag.Title = "Upload Excel";
+}
+<style>
+    #formTitle {
+        display: flex;
+        align-items: center;
+    }
+
+    #dowloadSample {
+        margin: 0px 0px 0px 20px;
+    }
+    /* Định dạng cho nút "X" trong modal */
+    .modal .close {
+        color: blue; /* Màu chữ */
+        border: none; /* Loại bỏ đường viền */
+        font-size: 30px; /* Kích thước chữ */
+        width: 30px; /* Chiều rộng */
+        height: 30px; /* Chiều cao */
+        line-height: 0px; /* Độ cao dòng */
+        text-align: center; /* Căn chỉnh văn bản */
+        cursor: pointer; /* Con trỏ chuột */
+        position: absolute; /* Tuyệt đối */
+        right: 10px; /* Khoảng cách từ phải sang */
+    }
+
+        .modal .close:hover {
+            background-color: #ffd800; /* Màu nền khi di chuột qua */
+        }
+
+    .modal-dialog {
+        width: auto;
+        max-width: 25%;
+        height: auto;
+        margin: 1.75rem auto;
+    }
+</style>
+
+<div id="formTitle">
+    <h3>Upload Email</h3>
+    <p id="dowloadSample">
+        If you don't have a sample file:
+        <a href="@Url.Action("Download", "Admin")">Download</a>
+    </p>
+
+</div>
+
+
+<form method="post" enctype="multipart/form-data">
+    <input type="file" name="file" id="fileInput" style="display:none;" />
+    <div id="dropZone" style="border: 2px dashed #ccc; padding: 20px; text-align: center;">
+        Drag and drop your Excel file here or click to select
+    </div>
+</form>
+<br />
+<button style="margin-bottom:20px" class="btn btn-success" id="uploadButton">Upload</button>
+
+<div class="form-control">
+    <h3>Edit Email</h3>
+    <input class="form-control" type="text" id="searchBox" placeholder="Search..." />
+</div>
+<table class="table table-bordered" id="dataTable">
+    <thead>
+        <tr style="background-color:#272822; color:white">
+            <th>Dept</th>
+            <th>Full name</th>
+            <th>Email</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="editEmailModal" tabindex="-1" role="dialog" aria-labelledby="editEmailModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editEmailModalLabel">Edit email information</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Form để chỉnh sửa thông tin học sinh -->
+                <form id="editEmailForm">
+                    <div class="form-group">
+                        <label for="editDept">Dept:</label>
+                        <input type="text" class="form-control" id="editDept">
+                    </div>
+                    <div class="form-group">
+                        <label for="editName">Full name:</label>
+                        <input type="text" class="form-control" id="editName">
+                    </div>
+                    <div class="form-group">
+                        <label for="editEmail">Email:</label>
+                        <input type="text" class="form-control" id="editEmail">
+                    </div>
+                    <input type="hidden" id="editEmailID">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="btnCloseModal" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveChangesBtn">Save change</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $('#uploadButton').click(function () {
+            var formData = new FormData();
+            var fileInput = $('#fileInput')[0].files[0];
+            formData.append('excelFile', fileInput);
+            $.ajax({
+                url: '/Admin/Upload',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    alert(response.message);
+                },
+                error: function (xhr, status, error) {
+                    alert('Lỗi: ' + error);
+                }
+            });
+        });
+        $('#searchBox').on('input', function () {
+            var query = $(this).val();
+            loadData(query);
+        });
+        function loadData(searchTerm) {
+            $.ajax({
+                url: '/Admin/Search',
+                type: 'GET',
+                data: { searchTerm: searchTerm },
+                success: function (response) {
+                    $('#dataTable tbody').empty();
+                    $.each(response.data, function (index, item) {
+                        $('#dataTable tbody').append('<tr data-id="' + item.ID + '">' + '</td><td class="data-dept">' + item.DEPARTMENT + '</td><td class="data-name">' + item.NAME + '</td><td class="data-email">' + '<strong>' + item.EMAIL + '</strong>' +
+                            '<td class="action-buttons"><button class="btn btn-danger">Delete</button> <button class="btn btn-warning">Edit</button>'
+                            + '</td></tr>');
+                    });
+                }
+            });
+        }
+        loadData("");
+        $(document).on('click', '.btn-danger', function () {
+            var row = $(this).closest('tr');
+            var email = "";
+            row.each(function () {
+                email = $(this).find('.data-email').text().trim();
+            });
+            // Hiển thị hộp thoại xác nhận trước khi xóa
+            if (confirm("You definitely want to delete this email?")) {
+                $.ajax({
+                    url: '/Admin/Delete',
+                    type: 'POST',
+                    data: { email: email },
+                    success: function (response) {
+                        // Xóa hàng khỏi bảng nếu xóa thành công
+                        row.remove();
+                        alert(response.message);
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Lỗi: ' + error);
+                    }
+                });
+            }
+            else {
+                // Nếu người dùng không chấp nhận xóa, không thực hiện gì cả
+                return false;
+            }
+        });
+        // edit
+        $(document).on('click', '.btn-warning', function () {
+            var row = $(this).closest('tr');
+            var id = row.data('id');
+            var dept = "";
+            var name = "";
+            var email = "";
+            row.each(function () {
+                dept = $(this).find('.data-dept').text().trim();
+                name = $(this).find('.data-name').text().trim();
+                email = $(this).find('.data-email').text().trim();
+            });
+            $('#editEmailID').val(id);
+            $('#editDept').val(dept);
+            $('#editName').val(name);
+            $('#editEmail').val(email);
+            $('#editEmailModal').modal('show');
+        });
+
+        // Thêm sự kiện click cho nút "X" bằng jQuery
+        $('.modal .close').click(function () {
+            // Đóng modal khi nút "X" được nhấp vào
+            $('#editEmailModal').modal('hide');
+            var currentSearch = $("#searchBox").val();
+            loadData(currentSearch);
+        });
+        $('#btnCloseModal').click(function () {
+            // Đóng modal
+            $('#editEmailModal').modal('hide');
+            var currentSearch = $("#searchBox").val();
+            loadData(currentSearch);
+        });
+
+        // save change
+        $(document).on('click', '#saveChangesBtn', function () {
+            var dept = $('#editDept').val();
+            var name = $('#editName').val();
+            var email = $('#editEmail').val();
+            var id = $('#editEmailID').val();
+            // Gửi dữ liệu đã chỉnh sửa lên server
+            $.ajax({
+                url: '/Admin/Edit',
+                type: 'POST',
+                data: {
+                    dept: dept,
+                    name: name,
+                    email: email,
+                    id: id
+                },
+                success: function (response) {
+                    // Đóng modal
+                    $('#editEmailModal').modal('hide');
+                    var currentSearch = $("#searchBox").val();
+                    loadData(currentSearch);
+
+                },
+                error: function (xhr, status, error) {
+                    alert('Lỗi: ' + error);
+                }
+            });
+        });
+        var dropZone = document.getElementById('dropZone');
+        var fileInput = document.getElementById('fileInput');
+
+        dropZone.addEventListener('dragover', function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'copy';
+        });
+
+        dropZone.addEventListener('drop', function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            var files = e.dataTransfer.files;
+            fileInput.files = files;
+            if (files.length > 0) {
+                dropZone.innerHTML = files[0].name;
+            }
+        });
+
+        dropZone.addEventListener('click', function () {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', function () {
+            var files = fileInput.files;
+            if (files.length > 0) {
+                dropZone.innerHTML = files[0].name;
+            }
+        });
+    });
+</script>

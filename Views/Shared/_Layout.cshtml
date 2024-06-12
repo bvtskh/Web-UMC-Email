@@ -7,17 +7,28 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.get("/Email/TotalVisits", function (data) {
+                $('#totalVisits').text(data);
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="form-control" style="display:flex">
         <img src="~/Resources/UMC logo.png" />
-        <h1 style="margin:10px 0 0 10px">UMC email list</h1>
+        <h1 style="margin:10px 0 0 10px">UMC EMAIL</h1>
     </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
             <p>&copy; 2024 - Copyright: PI-DX</p>
+            <!-- Hiển thị số lượng tổng lượt truy cập -->
+            <div>
+                Total number of visits: <span id="totalVisits"></span>
+            </div>
         </footer>
     </div>
 

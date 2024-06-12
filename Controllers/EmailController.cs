@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
@@ -19,36 +20,45 @@ namespace UMC_Email.Controllers
         // GET: Email
         DBContext context = new DBContext();
 
-        [Obsolete]
         public ActionResult Index()
         {
-            //DockEMAIL();
-            var mailList = context.UMC_EMAIL.ToList();
+            // _ = EmailHelper.AvalidEmail("quyetpv@umcvn.com");
+            CreateAccessLog();
+            var mailList = context.UMC_EMAIL.ToList(); 
             return View(mailList);                    
         }
 
-        [Obsolete]
-        //private void DockEMAIL()
-        //{
-        //    var rows = MiniExcel.QueryAsDataTable(@"C:\Users\u42107\Documents\Email_chuan.xlsx");
-        //    foreach (DataRow row in rows.Rows)
-        //    {
-        //        UMC_EMAIL uMC_EMAIL = new UMC_EMAIL();
-        //        uMC_EMAIL.NAME = row[1].ToString();
-        //        uMC_EMAIL.CODE = row[0].ToString();
-        //        uMC_EMAIL.DEPARTMENT = row[2].ToString();
-        //        uMC_EMAIL.EMAIL = row[3].ToString();
-        //        context.UMC_EMAIL.Add(uMC_EMAIL);
-        //        context.SaveChanges();
-        //    }
-        //}
+        private void CreateAccessLog()
+        {
+            // Lấy thông tin về yêu cầu
+            var request = HttpContext.Request;
+            var ipAddress = request.ServerVariables["HTTP_X_FORWARDED_FOR"] ?? request.UserHostAddress;
+            var userAgent = request.UserAgent;
+
+            // Ghi lại thông tin vào cơ sở dữ liệu
+            using (var dbContext = new DBContext())
+            {
+                var visit = new ACCESS_LOG
+                {
+                    AccsessTime = DateTime.Now,
+                    IpAddress = ipAddress,
+                    UserAgent = userAgent
+                };
+                context.ACCESS_LOG.Add(visit);
+                context.SaveChanges();
+            }
+        }
+        public int TotalVisits()
+        {
+            using(var context = new DBContext() )
+            {
+                int totalVisits = context.ACCESS_LOG.Count();
+                return totalVisits;
+            }
+        }
 
         public JsonResult Search(string searchTerm = "", int page = 1, int pageSize = 10)
         {
-
-            //var result = context.UMC_EMAIL.Where(p => p.DEPARTMENT.Contains(searchTerm) || p.NAME.Contains(searchTerm) || p.EMAIL.Contains(searchTerm)).ToList();
-            //return Json(result, JsonRequestBehavior.AllowGet);
-
             var query = context.UMC_EMAIL.AsEnumerable();
             if (!string.IsNullOrEmpty(searchTerm))
             {

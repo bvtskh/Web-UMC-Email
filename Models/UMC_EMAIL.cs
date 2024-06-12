@@ -10,6 +10,9 @@ namespace UMC_Email.Models
     {
         public int ID { get; set; }
 
+        [StringLength(200)]
+        public string CODE { get; set; }
+
         [StringLength(100)]
         public string NAME { get; set; }
 
@@ -18,7 +21,5 @@ namespace UMC_Email.Models
 
         [StringLength(200)]
         public string EMAIL { get; set; }
-
-        public string CODE {  get; set; }
     }
 }

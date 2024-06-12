@@ -12,6 +12,7 @@ namespace UMC_Email.Models
         {
         }
 
+        public virtual DbSet<ACCESS_LOG> ACCESS_LOG { get; set; }
         public virtual DbSet<UMC_EMAIL> UMC_EMAIL { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -76,20 +76,20 @@ namespace UMC_Email.Controllers
                 List<UMC_EMAIL> selectedItems = Session["SelectedItems"] as List<UMC_EMAIL> ?? new List<UMC_EMAIL>();
                 var result = new
                 {
-                    data = query.Take(10).ToList(),
+                    data = query.OrderBy(o=>o.DEPARTMENT).Take(10).ToList(),
                 };
                 return Json(result, JsonRequestBehavior.AllowGet);
             }
         }
         [HttpPost]
-        public ActionResult Delete(string email)
+        public ActionResult Delete(int id)
         {
             try
             {
-                using(var context = new DBContext())
+                using(var context = new DBContext())    
                 {
-                    var data = context.UMC_EMAIL.Where(w => w.EMAIL == email).ToList();
-                    context.UMC_EMAIL.RemoveRange(data);
+                    var data = context.UMC_EMAIL.Where(w => w.ID == id).FirstOrDefault();
+                    context.UMC_EMAIL.Remove(data);
                     context.SaveChanges();
                 }
                 return Json(new { success = true, message = "Delete email succsess!" });

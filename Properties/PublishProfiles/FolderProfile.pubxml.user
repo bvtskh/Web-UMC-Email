@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\u42107\Desktop\ThanhDX\Thanh_Project\UMC Email\bin\app.publish\</_PublishTargetUrl>
-    <History>True|2024-06-12T11:42:59.9496578Z;True|2024-06-12T18:19:07.9194292+07:00;True|2024-06-12T18:10:18.8672222+07:00;True|2024-06-12T17:29:40.0787750+07:00;True|2024-06-12T17:28:32.0505937+07:00;True|2024-06-12T17:23:25.6759617+07:00;True|2024-06-12T17:09:51.5503680+07:00;True|2024-06-12T17:01:16.9278763+07:00;True|2024-06-12T15:45:56.2898291+07:00;True|2024-06-11T08:47:10.2220784+07:00;True|2024-06-06T19:11:22.4682996+07:00;True|2024-06-06T15:28:37.0905918+07:00;</History>
+    <History>True|2024-06-20T10:23:09.5803346Z;True|2024-06-13T12:52:09.5113479+07:00;True|2024-06-13T08:36:26.4775423+07:00;True|2024-06-12T18:42:59.9496578+07:00;True|2024-06-12T18:19:07.9194292+07:00;True|2024-06-12T18:10:18.8672222+07:00;True|2024-06-12T17:29:40.0787750+07:00;True|2024-06-12T17:28:32.0505937+07:00;True|2024-06-12T17:23:25.6759617+07:00;True|2024-06-12T17:09:51.5503680+07:00;True|2024-06-12T17:01:16.9278763+07:00;True|2024-06-12T15:45:56.2898291+07:00;True|2024-06-11T08:47:10.2220784+07:00;True|2024-06-06T19:11:22.4682996+07:00;True|2024-06-06T15:28:37.0905918+07:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -157,10 +157,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/27/2022 23:42:50</publishTime>
     </File>
     <File Include="bin/UMC Email.dll">
-      <publishTime>06/12/2024 18:42:58</publishTime>
+      <publishTime>06/20/2024 17:23:08</publishTime>
     </File>
     <File Include="bin/UMC Email.pdb">
-      <publishTime>06/12/2024 18:42:58</publishTime>
+      <publishTime>06/20/2024 17:23:08</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
@@ -346,16 +346,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/05/2024 13:28:55</publishTime>
     </File>
     <File Include="Scripts/JSFunction/EmailScripts.js">
-      <publishTime>06/12/2024 13:25:09</publishTime>
+      <publishTime>06/20/2024 17:15:23</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.8.3.js">
       <publishTime>06/05/2024 13:28:54</publishTime>
     </File>
     <File Include="Views/Admin/Index.cshtml">
-      <publishTime>06/12/2024 18:30:56</publishTime>
+      <publishTime>06/13/2024 11:58:54</publishTime>
     </File>
     <File Include="Views/Email/Index.cshtml">
-      <publishTime>06/11/2024 08:41:53</publishTime>
+      <publishTime>06/13/2024 12:44:43</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>06/05/2024 13:28:45</publishTime>

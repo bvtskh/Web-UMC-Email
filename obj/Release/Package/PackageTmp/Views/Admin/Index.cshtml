@@ -83,7 +83,6 @@
                 </button>
             </div>
             <div class="modal-body">
-                <!-- Form để chỉnh sửa thông tin học sinh -->
                 <form id="editEmailForm">
                     <div class="form-group">
                         <label for="editDept">Dept:</label>
@@ -141,7 +140,7 @@
                 success: function (response) {
                     $('#dataTable tbody').empty();
                     $.each(response.data, function (index, item) {
-                        $('#dataTable tbody').append('<tr data-id="' + item.ID + '">' + '</td><td class="data-dept">' + item.DEPARTMENT + '</td><td class="data-name">' + item.NAME + '</td><td class="data-email">' + '<strong>' + item.EMAIL + '</strong>' +
+                        $('#dataTable tbody').append('<tr data-id="' + item.ID + '">' + '</td><td translate="no" class="data-dept">' + item.DEPARTMENT + '</td><td translate="no" class="data-name">' + item.NAME + '</td><td translate="no" class="data-email">' + '<strong>' + item.EMAIL + '</strong>' +
                             '<td class="action-buttons"><button class="btn btn-danger">Delete</button> <button class="btn btn-warning">Edit</button>'
                             + '</td></tr>');
                     });
@@ -151,16 +150,13 @@
         loadData("");
         $(document).on('click', '.btn-danger', function () {
             var row = $(this).closest('tr');
-            var email = "";
-            row.each(function () {
-                email = $(this).find('.data-email').text().trim();
-            });
+            var id = row.data('id');
             // Hiển thị hộp thoại xác nhận trước khi xóa
             if (confirm("You definitely want to delete this email?")) {
                 $.ajax({
                     url: '/Admin/Delete',
                     type: 'POST',
-                    data: { email: email },
+                    data: { id: id },
                     success: function (response) {
                         // Xóa hàng khỏi bảng nếu xóa thành công
                         row.remove();
@@ -211,31 +207,43 @@
 
         // save change
         $(document).on('click', '#saveChangesBtn', function () {
-            var dept = $('#editDept').val();
-            var name = $('#editName').val();
-            var email = $('#editEmail').val();
-            var id = $('#editEmailID').val();
-            // Gửi dữ liệu đã chỉnh sửa lên server
-            $.ajax({
-                url: '/Admin/Edit',
-                type: 'POST',
-                data: {
-                    dept: dept,
-                    name: name,
-                    email: email,
-                    id: id
-                },
-                success: function (response) {
-                    // Đóng modal
-                    $('#editEmailModal').modal('hide');
-                    var currentSearch = $("#searchBox").val();
-                    loadData(currentSearch);
-
-                },
-                error: function (xhr, status, error) {
-                    alert('Lỗi: ' + error);
+            // Validate form
+            var isValid = true;
+            $('#editEmailForm input[required]').each(function () {
+                if ($(this).val() === '') {
+                    isValid = false;
+                    $(this).addClass('is-invalid');
+                } else {
+                    $(this).removeClass('is-invalid');
                 }
             });
+            if (isValid) {
+                var dept = $('#editDept').val();
+                var name = $('#editName').val();
+                var email = $('#editEmail').val();
+                var id = $('#editEmailID').val();
+                // Gửi dữ liệu đã chỉnh sửa lên server
+                $.ajax({
+                    url: '/Admin/Edit',
+                    type: 'POST',
+                    data: {
+                        dept: dept,
+                        name: name,
+                        email: email,
+                        id: id
+                    },
+                    success: function (response) {
+                        // Đóng modal
+                        $('#editEmailModal').modal('hide');
+                        var currentSearch = $("#searchBox").val();
+                        loadData(currentSearch);
+
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Lỗi: ' + error);
+                    }
+                });
+            }
         });
         var dropZone = document.getElementById('dropZone');
         var fileInput = document.getElementById('fileInput');

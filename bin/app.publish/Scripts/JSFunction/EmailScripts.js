@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     var currentPage = 1;
-    var pageSize = 10;
+    var pageSize = 40;
 
     $('#searchBox').on('input', function () {
         var query = $(this).val();
@@ -17,7 +17,7 @@
                 $('#dataTable tbody').empty();
                 $.each(response.allData, function (index, item) {
                     index++;
-                    $('#dataTable tbody').append('<tr class="data-row"><td>' + index + '</td><td>' + item.DEPARTMENT + '</td><td>' + item.NAME + '</td><td class="data-email">' + '<strong>' + item.EMAIL + '</strong>' +
+                    $('#dataTable tbody').append('<tr class="data-row"><td>' + index + '</td><td translate="no">' + item.DEPARTMENT + '</td><td translate="no">' + item.NAME + '</td><td translate="no" class="data-email">' + '<strong>' + item.EMAIL + '</strong>' +
                         '<input class="form-check-input" type="checkbox" style = "margin :0 15px ;   transform: scale(1.8);  margin-top: 5px;" value="" id="flexCheckDefault">'
                         + '</td></tr>');
                 });
@@ -188,14 +188,14 @@
             // Đóng modal
             $('#myModal').modal('hide');
             var currentSearch = $("#searchBox").val();
-            loadData(currentSearch, 1, 10);
+            loadData(currentSearch, 1, 40);
         });
         // Thêm sự kiện click cho nút "X" bằng jQuery
         $('.modal .close').click(function () {
             // Đóng modal khi nút "X" được nhấp vào
             $('#myModal').modal('hide');
             var currentSearch = $("#searchBox").val();
-            loadData(currentSearch, 1, 10);
+            loadData(currentSearch, 1, 40);
         });
     });
 

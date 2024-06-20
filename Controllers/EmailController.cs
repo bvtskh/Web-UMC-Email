@@ -57,7 +57,7 @@ namespace UMC_Email.Controllers
             }
         }
 
-        public JsonResult Search(string searchTerm = "", int page = 1, int pageSize = 10)
+        public JsonResult Search(string searchTerm = "", int page = 1, int pageSize = 40)
         {
             var query = context.UMC_EMAIL.AsEnumerable();
             if (!string.IsNullOrEmpty(searchTerm))
@@ -74,7 +74,7 @@ namespace UMC_Email.Controllers
                                 x.DEPARTMENT,
                                 x.NAME,
                                 x.EMAIL
-                            }).ToList();
+                            }).OrderBy(o=>o.DEPARTMENT).ThenBy(t=>t.NAME).ToList();
             List<UMC_EMAIL> selectedItems = Session["SelectedItems"] as List<UMC_EMAIL> ?? new List<UMC_EMAIL>();
             var result = new
             {
